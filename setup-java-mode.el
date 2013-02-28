@@ -1,0 +1,5 @@
+(add-hook 'java-mode-hook       (lambda ()
+                                  (yas--initialize)
+                                  (yas-load-directory "~/.emacs.d/java-mode")
+                                  ))
+(provide 'setup-java-mode)
