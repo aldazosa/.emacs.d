@@ -71,6 +71,7 @@
 (require 'setup-elisp)
 (require 'setup-nrepl)
 (require 'setup-ibuffer)
+(require 'setup-magit)
 
 
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
