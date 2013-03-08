@@ -30,7 +30,7 @@
 
 (defvar my-packages '(clojure-mode magit nrepl paredit rainbow-delimiters diminish
                                    smex google-this ace-jump-mode clojure-test-mode
-                                   csv-mode flycheck google-translate ido-ubiquitous hackernews
+                                   csv-mode flycheck google-translate ido-ubiquitous
                                    markdown-mode auto-complete ac-nrepl git-gutter-fringe
                                    sql-indent yasnippet smooth-scrolling undo-tree emacs-eclim
                                    starter-kit-eshell browse-kill-ring ack-and-a-half
