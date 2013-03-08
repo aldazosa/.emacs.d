@@ -1,4 +1,3 @@
-(require 'ido)
 (ido-mode t)
 (set-default 'imenu-auto-rescan t)
 (require 'ido-ubiquitous)
