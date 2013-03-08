@@ -11,9 +11,6 @@
   (forward-line -1)
   (indent-for-tab-command))
 
-(global-set-key (kbd "<C-return>") 'open-line-above)
-(global-set-key (kbd "<C-S-return>") 'open-line-below)
-
 (defun what-face (pos)
   "Return the font-lock face information at the current point
    Thanks to Miles Bader <miles@lsi.nec.co.jp> for
