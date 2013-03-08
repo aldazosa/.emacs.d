@@ -1,6 +1,6 @@
 ;; A nice font
-(set-default-font "Anonymous pro 14")
-;;(set-default-font "Inconsolata 14")
+(set-frame-font "Anonymous pro 14")
+;;(set-frame-font "Inconsolata 14")
 
 (setq visible-bell t
       font-lock-maximum-decoration t
@@ -19,5 +19,13 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
   (blink-cursor-mode -1))
+
+;; Stop wasting real estate
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; Nice theme
+(load-theme 'zen-and-art t)
 
 (provide 'appearance)
