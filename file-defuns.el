@@ -2,6 +2,8 @@
 
 ;; Defuns for working with files
 
+(require 's)
+
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
@@ -36,9 +38,7 @@
   "Add current file path to kill ring. Limits the filename to project root if possible."
   (interactive)
   (let ((filename (buffer-file-name)))
-    (kill-new (if eproject-mode
-                  (s-chop-prefix (eproject-root) filename)
-                filename))))
+    (kill-new filename)))
 
 (defun find-or-create-file-at-point ()
   "Guesses what parts of the buffer under point is a file name and opens it."
@@ -68,5 +68,11 @@
   (insert " ")
   (backward-delete-char 1)
   (save-buffer))
+
+(defun sudo-edit (&optional arg)
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo::" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo::" buffer-file-name))))
 
 (provide 'file-defuns)

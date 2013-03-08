@@ -10,7 +10,7 @@
 (global-set-key (kbd "M-Z") 'zap-to-char)
 
 ;; ;; Jump to a definition in the current file. (This is awesome)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
+;; (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 ;; ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
@@ -27,7 +27,7 @@
                 (lambda () (interactive) (revert-buffer t t)))
 
 ;; Edit file with sudo
-(global-set-key (kbd "M-s e") 'sudo-edit)
+(global-set-key (kbd "C-M-s") 'sudo-edit)
 
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
