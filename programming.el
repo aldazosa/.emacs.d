@@ -12,10 +12,6 @@
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
 
 (add-hook 'prog-mode-hook (lambda ()
-                            ;; (when (and (executable-find ispell-program-name)
-                            ;;            prelude-flyspell)
-                            ;;   (flyspell-prog-mode))
-                            ;; (flycheck-mode +1)
                             (flyspell-prog-mode)
                             (local-comment-auto-fill)
                             (add-watchwords)))
