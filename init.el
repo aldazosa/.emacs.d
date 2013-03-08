@@ -1,12 +1,15 @@
+;;; Inspiration, code and functions taken from a variety of sources:
+;;;
+;;; * Technomancy's dot files https://github.com/technomancy
+;;; * Magnars's dot emacs https://github.com/magnars
+;;; * Emacs live https://github.com/overtone/emacs-live
+;;; * Code scattered around the interwebs
+
 ;; Set up load path
 (add-to-list 'load-path user-emacs-directory)
 
 (let ((default-directory "~/.emacs.d/elisp/"))
   (normal-top-level-add-subdirs-to-load-path))
-
-
-(require 'cl)
-(defvar *emacs-load-start* (current-time))
 
 (defun fullscreen ()
   (interactive)
@@ -25,18 +28,17 @@
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(clojure-mode scpaste ace-jump-mode clojure-test-mode
-                                   csv-mode diminish flycheck google-translate hackernews
-                                   magit markdown-mode nrepl paredit rainbow-delimiters
-                                   smex sql-indent yasnippet ido-ubiquitous smooth-scrolling
-                                   undo-tree emacs-eclim starter-kit-eshell
-                                   browse-kill-ring))
+(defvar my-packages '(clojure-mode magit nrepl paredit rainbow-delimiters diminish
+                                   smex google-this ace-jump-mode clojure-test-mode
+                                   csv-mode flycheck google-translate ido-ubiquitous hackernews
+                                   markdown-mode auto-complete ac-nrepl git-gutter-fringe
+                                   sql-indent yasnippet smooth-scrolling undo-tree emacs-eclim
+                                   starter-kit-eshell browse-kill-ring ack-and-a-half
+                                   pretty-lambdada zen-and-art-theme ercn erc-hl-nicks org))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
-;; Things that should always be loaded
 
 (setq inhibit-startup-message t)
 
@@ -44,37 +46,47 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-;; Nice theme
-(load-theme 'zen-and-art t)
-
-(require 'cl)
-
 ;; Save point position between sessions
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
-(require 'browse-kill-ring)
-(require 'yasnippet)
-(require 'setup-ispell)
+;; Elisp first so we can always configure Emacs
+(require 'setup-lisp)
+(require 'setup-elisp)
+(require 'setup-paredit)
+
+;; Handy functions next
+(require 'defuns)
+(require 'buffer-defuns)
+(require 'file-defuns)
+
+;; Prettify Emacs
 (require 'sane-defaults)
-(require 'my-misc)
-(require 'setup-ido)
 (require 'key-bindings)
 (require 'appearance)
-(require 'defuns)
-(require 'file-defuns)
-;; (require 'eclim-setup)
-(require 'setup-java-mode)
-(require 'setup-paredit)
-(require 'programming)
-(require 'setup-elisp)
-(require 'setup-nrepl)
+(require 'my-misc)
+
+;; Everything else
+(require 'setup-ido)
+(require 'setup-ace-jump)
+(require 'setup-autocomplete)
+(require 'setup-google)
+(require 'browse-kill-ring)
+(require 'setup-dired)
+(require 'setup-ispell)
 (require 'setup-ibuffer)
 (require 'setup-magit)
+(require 'setup-erc)
 
-
-(message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
-                                     (- (+ hi lo) (+ (first *emacs-load-start*) (second *emacs-load-start*)))))
+;; Programming stuff
+(require 'yasnippet)
+(require 'programming)
+(require 'setup-nxml)
+(require 'setup-java-mode)
+(require 'setup-nrepl)
+(require 'setup-clojure)
+(require 'setup-eshell)
+(require 'setup-git-gutter)
 
 ;;; init.el ends here
