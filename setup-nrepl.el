@@ -14,4 +14,17 @@
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
+(require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+;; (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+
+(eval-after-load 'nrepl
+                 '(progn
+                   (setq lisp-indent-function 'clojure-indent-function)
+                   (define-key nrepl-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)))
+
+;;(define-key nrepl-mode-map (kbd "<return>") 'nrepl-paredit-return)
+
 (provide 'setup-nrepl)
