@@ -64,4 +64,6 @@
 ;; (global-set-key (kbd "C-x C-j") 'dired-jump) (autoload 'dired-jump "dired")
 ;; (global-set-key (kbd "C-x M-j") '(lambda () (interactive) (dired-jump 1))
 
+(global-set-key (kbd "C-h") 'delete-backward-char)
+
 (provide 'key-bindings)
