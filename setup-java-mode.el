@@ -3,11 +3,16 @@
   (setq c-comment-start-regexp "(@|/(/|[*][*]?))")
   (modify-syntax-entry ?@ "< b" java-mode-syntax-table))
 
+;; Highlight long lines
+(setq whitespace-line-column 120
+      whitespace-style '(face tabs trailing lines-tail))
+
 (add-hook 'java-mode-hook (lambda ()
                                   (java-annotations-setup)
                                   (yas--initialize)
                                   (yas-load-directory "~/.emacs.d/java-mode")
-                                  (electric-pair-mode)))
+                                  (electric-pair-mode)
+                                  (whitespace-mode)))
 
 
 (defun mvn(&optional args)
