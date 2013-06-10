@@ -1,4 +1,10 @@
+(defun java-annotations-setup()
+  "Treat Java 1.5 @-style annotations as comments."
+  (setq c-comment-start-regexp "(@|/(/|[*][*]?))")
+  (modify-syntax-entry ?@ "< b" java-mode-syntax-table))
+
 (add-hook 'java-mode-hook (lambda ()
+                                  (java-annotations-setup)
                                   (yas--initialize)
                                   (yas-load-directory "~/.emacs.d/java-mode")
                                   (electric-pair-mode)))
