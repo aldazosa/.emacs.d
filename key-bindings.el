@@ -66,4 +66,7 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
+;; switch to other frame
+(global-set-key (kbd "C-x p") 'other-frame)
+
 (provide 'key-bindings)
