@@ -69,4 +69,6 @@
 ;; switch to other frame
 (global-set-key (kbd "C-x p") 'other-frame)
 
+(windmove-default-keybindings)
+
 (provide 'key-bindings)
