@@ -3,6 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(clojure-test-error-face ((t (:background "cornflower blue"))))
+ '(clojure-test-failure-face ((t (:background "darkred"))))
  '(diff-added ((t (:foreground "#00ff00"))))
  '(diff-changed ((t (:foreground "#ffff00"))))
  '(diff-file-header ((t (:background "#5f5f5f" :foreground "#dcdccc" :weight bold))))
@@ -19,11 +21,11 @@
  '(org-done ((t (:foreground "dark green" :weight bold))) t)
  '(org-todo ((t (:foreground "red2" :weight bold))) t)
  '(rainbow-delimiters-depth-1-face ((t (:foreground "#93e0e3"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#f0dfaf"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#94bff3"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#dca3a3"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#dfaf8f"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#7cb8bb"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "turquoise"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "slateblue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "green3"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "purple"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "#bfebbf"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "#9c6363"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "#d0bf8f"))))
