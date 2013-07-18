@@ -34,7 +34,8 @@
                                    markdown-mode auto-complete ac-nrepl git-gutter-fringe
                                    sql-indent yasnippet smooth-scrolling undo-tree emacs-eclim
                                    starter-kit-eshell browse-kill-ring ack-and-a-half
-                                   pretty-lambdada zen-and-art-theme ercn erc-hl-nicks org s))
+                                   pretty-lambdada zen-and-art-theme ercn erc-hl-nicks org s
+                                   slamhound))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -88,5 +89,7 @@
 (require 'setup-clojure)
 (require 'setup-eshell)
 (require 'setup-git-gutter)
+(require 'setup-markdown)
+(require 'setup-maven)
 
 ;;; init.el ends here
