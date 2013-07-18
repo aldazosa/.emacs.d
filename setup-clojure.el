@@ -33,7 +33,9 @@
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "M-t") 'transpose-words-with-hyphens))
 
-(require 'pretty-lambdada)
+;;(require 'pretty-lambdada)
+
+
 
 (eval-after-load 'clojure-mode
   '(font-lock-add-keywords
@@ -56,9 +58,40 @@
                                                (match-end 1) "∈")
                                nil))))))
 
+(add-hook 'clojure-mode-hook (lambda ()
+                                     (dolist (el '(
+                                                   ;;("(\\(fn\\)[[:space:]]"         . "ƒ")
+                                                    ("\\(partial\\)[[:space:]]"     . "Ƥ")
+                                                    ("\\(comp\\)[[:space:]]"        . "·")
+                                                    ;; ("\\(#\\)("                     . "λ")
+                                                    ("(\\(not\\)[[:space:]]"        . "¬")
+                                                    ("\\(->\\)[[:space:]]"          . "→")
+                                                    ;; ("\\(->>\\)[[:space:]]"         . "↠")
+                                                    ("\\(<=\\)[[:space:]]"          . "≤")
+                                                    ("\\(>=\\)[[:space:]]"          . "≥")
+                                                    ("\\(not=\\)[[:space:]]"        . "≠")
+                                                    ("\\(identical\\?\\)[[:space:]]". "≡")
+                                                    ;;("[^\\]\\(~\\)"                 . "˷")
+                                                    ;;("\\(contains\\?\\)[[:space:]]" . "∈")
+                                                    ("\\(every\\?\\)[[:space:]]"    . "∀")
+                                                    ;;("[^\\]?\\(%\\)"                . "¯")
+                                                    ("\\(true\\)[[:space:]]"        . "т")
+                                                    ("\\(true\\))"                  . "т")
+                                                    ("\\(true\\))[ \t\n]"           . "т")
+                                                    ("\\(false\\)[[:space:]]"       . "ғ")
+                                                    ("\\(:keys\\)[[:space:]]"       . "ӄ")
+                                                    ;;("\\(nil\\)[[:space:]]"         . "∅")
+                                                    ))
+
+                                              (font-lock-add-keywords nil `((,(car el)
+                                                                             (0 (progn (compose-region (match-beginning 1)
+                                                                                                       (match-end 1)
+                                                                                                       ,(cdr el))
+                                                                                       nil))))))))
+
 (add-hook 'clojure-mode-hook '(lambda ()
-                                (turn-on-pretty-lambda-mode)
-                                (rainbow-delimiters-mode)))
+                                      ;;(turn-on-pretty-lambda-mode)
+                                      (rainbow-delimiters-mode)))
 
 ;; (eval-after-load 'clojure-mode
 ;;   `(defvar clojure-mode-syntax-table
