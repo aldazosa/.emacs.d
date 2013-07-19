@@ -35,7 +35,7 @@
                                    sql-indent yasnippet smooth-scrolling undo-tree emacs-eclim
                                    starter-kit-eshell browse-kill-ring ack-and-a-half
                                    pretty-lambdada zen-and-art-theme ercn erc-hl-nicks org s
-                                   slamhound))
+                                   slamhound align-cljlet))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

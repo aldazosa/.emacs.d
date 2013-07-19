@@ -123,4 +123,6 @@
   (interactive)
   (insert-comment-annotation "TODO"))
 
+(require 'align-cljlet)
+
 (provide 'setup-clojure)
