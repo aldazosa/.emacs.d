@@ -3,7 +3,11 @@
 
 (setq nrepl-hide-special-buffers t)
 
-(setq nrepl-popup-stacktraces nil)
+(defun toggle-repl-stacktrace-popup (unused)
+  (interactive "P")
+  (setq nrepl-popup-stacktraces-in-repl (not nrepl-popup-stacktraces-in-repl)))
+
+(setq nrepl-popup-stacktraces-in-repl t)
 
 ;;(add-to-list 'same-window-buffer-names "*nrepl*")
 
