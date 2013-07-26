@@ -28,14 +28,39 @@
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(clojure-mode magit nrepl paredit rainbow-delimiters diminish
-                                   smex google-this ace-jump-mode clojure-test-mode
-                                   csv-mode flycheck google-translate ido-ubiquitous
-                                   markdown-mode auto-complete ac-nrepl git-gutter-fringe
-                                   sql-indent yasnippet smooth-scrolling undo-tree emacs-eclim
-                                   starter-kit-eshell browse-kill-ring ack-and-a-half
-                                   pretty-lambdada zen-and-art-theme ercn erc-hl-nicks org s
-                                   slamhound align-cljlet))
+(defvar my-packages '(ac-nrepl
+                      ace-jump-mode
+                      ack-and-a-half
+                      align-cljlet
+                      auto-complete
+                      browse-kill-ring
+                      clojure-mode
+                      clojure-test-mode
+                      csv-mode
+                      diminish
+                      erc-hl-nicks
+                      ercn
+                      flycheck
+                      git-gutter-fringe
+                      google-this
+                      google-translate
+                      ido-ubiquitous
+                      magit
+                      markdown-mode
+                      nrepl
+                      org
+                      paredit
+                      pretty-lambdada
+                      rainbow-delimiters
+                      s
+                      slamhound
+                      smex
+                      smooth-scrolling
+                      sql-indent
+                      starter-kit-eshell
+                      undo-tree
+                      yasnippet
+                      zen-and-art-theme))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
