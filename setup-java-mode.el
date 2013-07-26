@@ -11,7 +11,7 @@
                                   (java-annotations-setup)
                                   (yas--initialize)
                                   (yas-load-directory "~/.emacs.d/java-mode")
-                                  (electric-pair-mode)
+                                  (autopair-mode)
                                   (whitespace-mode)))
 
 
