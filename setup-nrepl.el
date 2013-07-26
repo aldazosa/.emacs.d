@@ -3,6 +3,8 @@
 
 (setq nrepl-hide-special-buffers t)
 
+(setq nrepl-server-command "lein trampoline repl :headless")
+
 (defun toggle-repl-stacktrace-popup (unused)
   (interactive "P")
   (setq nrepl-popup-stacktraces-in-repl (not nrepl-popup-stacktraces-in-repl)))
