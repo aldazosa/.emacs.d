@@ -16,6 +16,8 @@
   (insert "(user/reset)")
   (nrepl-return))
 
+(global-set-key (kbd "C-c u") 'nrepl-reset)
+
 ;; From emacs live
 
 (eval-after-load 'clojure-mode
