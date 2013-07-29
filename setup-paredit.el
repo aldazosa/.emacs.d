@@ -15,6 +15,9 @@
 (define-key paredit-mode-map (kbd "M-)")
   'paredit-wrap-round-from-behind)
 
+(define-key paredit-mode-map (kbd "C-M-;")
+  'kill-sexp)
+
 (diminish 'paredit-mode " π")
 
 (provide 'setup-paredit)
