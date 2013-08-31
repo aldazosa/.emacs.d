@@ -33,6 +33,7 @@
                       ack-and-a-half
                       align-cljlet
                       auto-complete
+                      autopair
                       browse-kill-ring
                       clojure-mode
                       clojure-test-mode
@@ -104,8 +105,8 @@
 (require 'setup-ibuffer)
 (require 'setup-magit)
 (require 'setup-erc)
-
 (require 'setup-flyspell)
+
 ;; Programming stuff
 
 (require 'setup-yasnippet)
