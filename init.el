@@ -89,6 +89,7 @@
 (require 'file-defuns)
 
 ;; Prettify Emacs
+(require 'misc)
 (require 'sane-defaults)
 (require 'key-bindings)
 (require 'appearance)
