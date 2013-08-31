@@ -12,9 +12,8 @@
                   (not (equal dir (file-truename (concat dir "/..")))))
         (setf dir (file-truename (concat dir "/.."))))
       (if (not (file-exists-p (concat dir "/pom.xml")))
-          (message "No pom.xml found")
-        (compile (read-from-minibuffer "Command: "
-                                       (concat "mvn -o -f " dir "/pom.xml org.apache.maven.plugin:maven-emacs-plugin:1.2.2:jdee compile") nil nil 'mvn-command-history))))))
+        (message "No pom.xml found")
+        (compile (concat "mvn -o -f " dir "/pom.xml install -Dmaven.test.skip=true"))))))
 
 (defun mvn-tst(&optional args)
   "Runs maven in the current project. Starting at the directoy where the file being visited resides, a search is
