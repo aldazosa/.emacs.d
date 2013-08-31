@@ -11,6 +11,13 @@
   (forward-line -1)
   (indent-for-tab-command))
 
+(defun open-line-here ()
+  (interactive)
+  (newline)
+  (indent-for-tab-command)
+  (forward-line -1)
+  (end-of-line))
+
 (defun what-face (pos)
   "Return the font-lock face information at the current point
    Thanks to Miles Bader <miles@lsi.nec.co.jp> for
@@ -22,7 +29,6 @@
         (message "Face: %s" face)
       (message "No face at %d" pos))))
 
-(provide 'defuns)
 ;; Taken from
 ;; http://blog.bookworm.at/2007/03/pretty-print-xml-with-emacs.html
 (defun pretty-print-xml-region (begin end)
@@ -39,3 +45,5 @@ by using nxml's indentation rules."
         (backward-char) (insert "\n"))
       (indent-region begin end))
     (message "Ah, much better!"))
+
+(provide 'defuns)

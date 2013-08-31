@@ -45,9 +45,7 @@
 ;; Clever newlines
 (global-set-key (kbd "<C-return>") 'open-line-below)
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
-
-;; Yank and indent
-(global-set-key (kbd "C-S-y") 'yank-unindented)
+(global-set-key (kbd "C-o") 'open-line-here)
 
 ;; Sorting
 (global-set-key (kbd "M-s l") 'sort-lines)
