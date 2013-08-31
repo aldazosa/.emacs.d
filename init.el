@@ -112,6 +112,7 @@
 
 (require 'setup-yasnippet)
 (require 'programming)
+(require 'setup-tapestry)
 (require 'setup-nxml)
 (require 'setup-java-mode)
 (require 'setup-nrepl)
