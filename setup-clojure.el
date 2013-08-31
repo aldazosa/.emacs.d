@@ -1,22 +1,25 @@
-(global-set-key (kbd "C-c o r") 'nrepl-switch-to-repl-buffer)
-
 ;; From https://github.com/stuartsierra/dotfiles/blob/master/.emacs
 
+(defun nrepl-buffer-name ()
+  (lexical-let ((project-name (with-current-buffer
+                                (get-buffer (nrepl-current-connection-buffer))
+                                (nrepl--project-name nrepl-project-dir))))
+               (format "*nrepl%s%s*" nrepl-buffer-name-separator project-name)))
+
+;; Change these to use (nrepl-eval INPUT &optional NS SESSION)?
 (defun nrepl-refresh ()
   (interactive)
-  (set-buffer "*nrepl*")
+  (set-buffer (nrepl-buffer-name))
   (goto-char (point-max))
   (insert "(clojure.tools.namespace.repl/refresh)")
   (nrepl-return))
 
 (defun nrepl-reset ()
   (interactive)
-  (set-buffer "*nrepl*")
+  (set-buffer (nrepl-buffer-name))
   (goto-char (point-max))
   (insert "(user/reset)")
   (nrepl-return))
-
-(global-set-key (kbd "C-c u") 'nrepl-reset)
 
 ;; From emacs live
 
@@ -33,11 +36,11 @@
     (transpose-words arg)))
 
 (eval-after-load 'clojure-mode
-  '(define-key clojure-mode-map (kbd "M-t") 'transpose-words-with-hyphens))
-
-;;(require 'pretty-lambdada)
-
-
+                 '(progn
+                   (define-key clojure-mode-map (kbd "M-t") 'transpose-words-with-hyphens)
+                   (define-key clojure-mode-map (kbd "C-c u") 'nrepl-reset)
+                   (define-key clojure-mode-map (kbd "C-c o r") 'nrepl-switch-to-repl-buffer)
+                   (define-key clojure-mode-map (kbd "C-c M-;") 'insert-ignore-form)))
 
 (eval-after-load 'clojure-mode
   '(font-lock-add-keywords
@@ -92,19 +95,7 @@
                                                                                        nil))))))))
 
 (add-hook 'clojure-mode-hook '(lambda ()
-                                      ;;(turn-on-pretty-lambda-mode)
                                       (rainbow-delimiters-mode)))
-
-;; (eval-after-load 'clojure-mode
-;;   `(defvar clojure-mode-syntax-table
-;;      (let ((table (copy-syntax-table clojure-mode-syntax-table)))
-;;        (modify-syntax-entry ?ƒ "w")
-;;        (modify-syntax-entry ?∈ "w")
-;;        table)))
-
-;; (eval-after-load 'clojure-mode
-;;                  '(progn
-;;                    (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)))
 
 (defun insert-annotation-tag ()
   (concat "(MAM " (format-time-string "%Y-%m-%d") ")"))
@@ -128,8 +119,6 @@
 (defun insert-ignore-form ()
   (interactive)
   (insert "#_"))
-
-(global-set-key (kbd "C-c M-;") 'insert-ignore-form)
 
 (require 'align-cljlet)
 
