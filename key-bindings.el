@@ -69,9 +69,9 @@
 ;; switch to other frame
 (global-set-key (kbd "C-x p") 'other-frame)
 
+;; Move between panes with shift + arrows
 (windmove-default-keybindings)
 
-(provide 'key-bindings)
 ;; Regex search
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
@@ -79,3 +79,5 @@
 ;; Regular search
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
+
+(provide 'key-bindings)
