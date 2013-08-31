@@ -120,6 +120,5 @@
 (require 'setup-eshell)
 (require 'setup-git-gutter)
 (require 'setup-markdown)
-(require 'setup-maven)
 
 ;;; init.el ends here

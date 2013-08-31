@@ -8,4 +8,8 @@
                                 ("\\.xml$" . nxml-mode))
                               auto-mode-alist))
 
+(eval-after-load 'nxml-mode
+                 '(progn
+                   (define-key nxml-mode-map (kbd "C-x C-j") 'switch-to-companion-file)))
+
 (provide 'setup-nxml)

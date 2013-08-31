@@ -14,6 +14,8 @@
                                   (autopair-mode)
                                   (whitespace-mode)))
 
+(defvar mvn-command-history nil
+  "Maven command history variable")
 
 (defun mvn(&optional args)
   "Runs maven in the current project. Starting at the directoy where the file being visited resides, a search is
@@ -26,32 +28,38 @@
                   (not (equal dir (file-truename (concat dir "/..")))))
         (setf dir (file-truename (concat dir "/.."))))
       (if (not (file-exists-p (concat dir "/pom.xml")))
+        (message "No pom.xml found")
+        (compile (concat "mvn -o -f " dir "/pom.xml install -Dmaven.test.skip=true"))))))
+
+(defun mvn-tst(&optional args)
+  "Runs maven in the current project. Starting at the directoy where the file being visited resides, a search is
+   made for pom.xml recsurively. A maven command is made from the first directory where the pom.xml file is found is then displayed
+  in the minibuffer. The command can be edited as needed and then executed. Errors are navigate to as in any other compile mode"
+  (interactive)
+  (let ((fn (buffer-file-name)))
+    (let ((dir (file-name-directory fn)))
+      (while (and (not (file-exists-p (concat dir "/pom.xml")))
+                  (not (equal dir (file-truename (concat dir "/..")))))
+        (setf dir (file-truename (concat dir "/.."))))
+      (if (not (file-exists-p (concat dir "/pom.xml")))
           (message "No pom.xml found")
         (compile (read-from-minibuffer "Command: "
-                                       (concat "mvn -o -f " dir "/pom.xml install") nil nil 'mvn-command-history))))))
+                                       (concat "mvn -o -f " dir "/pom.xml test -Dgroups=") nil nil 'mvn-command-history))))))
 
 (defun run-mvn()
   (interactive)
   (progn
     (mvn)))
 
-(global-set-key (kbd "<f6>") 'run-mvn)
-
-(defun switch-to-tml (java-file)
+(defun run-mvn-tst()
   (interactive)
-  (find-file (replace-regexp-in-string "\\(.*\\)src/main/java\\(.*\\)/\\(.*\\).java" "\\1src/main/resources\\2/\\3.tml" java-file)))
+  (progn
+   (mvn-tst)))
 
-(defun switch-to-java (tml-file)
-  (interactive)
-  (find-file (replace-regexp-in-string "\\(.*\\)src/main/resources\\(.*\\)/\\(.*\\).tml" "\\1src/main/java\\2/\\3.java" tml-file)))
-
-(defun switch-to-companion-file ()
-  "switch from a .java file to its .tml companion and viceversa"
-  (interactive)
-  (let ((buffer-file (buffer-file-name)))
-    (cond ((string-match "\.java$" buffer-file) (switch-to-tml buffer-file))
-          ((string-match "\.tml$" buffer-file) (switch-to-java buffer-file)))))
-
-(global-set-key (kbd "C-x C-j") 'switch-to-companion-file)
+(eval-after-load 'cc-mode
+                 '(progn
+                   (define-key java-mode-map (kbd "C-x C-j") 'switch-to-companion-file)
+                   (define-key java-mode-map (kbd "<f6>") 'run-mvn)
+                   (define-key java-mode-map (kbd "<f7>") 'run-mvn-tst)))
 
 (provide 'setup-java-mode)
