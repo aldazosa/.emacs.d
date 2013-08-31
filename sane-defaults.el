@@ -119,7 +119,6 @@
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
-
 ;; No arrow navigation
 (global-set-key (kbd "<left>") (lambda ()
                                  (interactive)
@@ -133,4 +132,10 @@
 (global-set-key (kbd "<down>") (lambda ()
                                  (interactive)
                                  (message "No cheating, go use the correct bindings")))
+
+(setq mouse-yank-at-point t
+      x-select-enable-primary t
+      x-select-enable-clipboard t
+      save-interprogram-paste-before-kill t)
+
 (provide 'sane-defaults)
