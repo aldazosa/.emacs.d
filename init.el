@@ -105,6 +105,7 @@
 (require 'setup-magit)
 (require 'setup-erc)
 
+(require 'setup-flyspell)
 ;; Programming stuff
 (require 'yasnippet)
 (require 'programming)
