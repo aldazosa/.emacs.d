@@ -125,6 +125,12 @@
   (interactive)
   (insert-comment-annotation "TODO"))
 
+(defun insert-ignore-form ()
+  (interactive)
+  (insert "#_"))
+
+(global-set-key (kbd "C-c M-;") 'insert-ignore-form)
+
 (require 'align-cljlet)
 
 (provide 'setup-clojure)
