@@ -107,7 +107,8 @@
 
 (require 'setup-flyspell)
 ;; Programming stuff
-(require 'yasnippet)
+
+(require 'setup-yasnippet)
 (require 'programming)
 (require 'setup-nxml)
 (require 'setup-java-mode)
