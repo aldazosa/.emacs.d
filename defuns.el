@@ -46,4 +46,25 @@ by using nxml's indentation rules."
       (indent-region begin end))
     (message "Ah, much better!"))
 
+(defun insert-comment-annotation (tag)
+  "Adds a comment annotation with the name of the user and the current date."
+  (interactive)
+  (let ((from (point)))
+    (insert (concat tag ": "))
+    (push-mark)
+    (insert (concat "(MAM " (format-time-string "%Y-%m-%d") ")"))
+    (comment-region from (point))
+    (goto-char (mark))
+    (pop-mark)))
+
+(defun insert-fixme ()
+  "Adds a FIXME comment annotation."
+  (interactive)
+  (insert-comment-annotation "FIXME"))
+
+(defun insert-todo ()
+  "Adds a TODO comment annotation."
+  (interactive)
+  (insert-comment-annotation "TODO"))
+
 (provide 'defuns)

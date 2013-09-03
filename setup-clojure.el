@@ -97,25 +97,6 @@
 (add-hook 'clojure-mode-hook '(lambda ()
                                       (rainbow-delimiters-mode)))
 
-(defun insert-annotation-tag ()
-  (concat "(MAM " (format-time-string "%Y-%m-%d") ")"))
-
-(defun insert-comment-annotation (tag)
-  (interactive)
-  (insert (concat ";; " tag ": "))
-  (push-mark)
-  (insert (concat "(MAM " (format-time-string "%Y-%m-%d") ")"))
-  (goto-char (mark))
-  (pop-mark))
-
-(defun insert-fixme ()
-  (interactive)
-  (insert-comment-annotation "FIXME"))
-
-(defun insert-todo ()
-  (interactive)
-  (insert-comment-annotation "TODO"))
-
 (defun insert-ignore-form ()
   (interactive)
   (insert "#_"))
