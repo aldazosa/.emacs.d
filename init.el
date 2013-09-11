@@ -45,6 +45,7 @@
                       git-gutter-fringe
                       google-this
                       google-translate
+                      highlight-symbol
                       ido-ubiquitous
                       magit
                       markdown-mode

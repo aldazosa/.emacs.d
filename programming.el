@@ -11,9 +11,14 @@
   (auto-fill-mode 1)
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
 
+(require 'highlight-symbol)
+
 (add-hook 'prog-mode-hook (lambda ()
                             (flyspell-prog-mode)
                             (local-comment-auto-fill)
-                            (add-watchwords)))
+                            (add-watchwords)
+                            (highlight-symbol-mode)))
+
+(diminish 'highlight-symbol-mode)
 
 (provide 'programming)
