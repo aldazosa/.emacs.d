@@ -95,7 +95,8 @@
                                                                                        nil))))))))
 
 (add-hook 'clojure-mode-hook '(lambda ()
-                                      (rainbow-delimiters-mode)))
+                                      (rainbow-delimiters-mode)
+                                      (set (make-local-variable 'font-lock-extra-managed-props) '(composition))))
 
 (defun insert-ignore-form ()
   (interactive)
