@@ -27,7 +27,7 @@
                 (lambda () (interactive) (revert-buffer t t)))
 
 ;; Edit file with sudo
-(global-set-key (kbd "C-M-s") 'sudo-edit)
+(global-set-key (kbd "C-x C-S-f") 'sudo-edit)
 
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
