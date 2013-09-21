@@ -62,4 +62,31 @@
                    (define-key java-mode-map (kbd "<f6>") 'run-mvn)
                    (define-key java-mode-map (kbd "<f7>") 'run-mvn-tst)))
 
+(defun checkstyle (&optional buffer-only)
+  "Runs checkstyle. If buffer-only is set it only checks the current buffer's
+   file. Otherwise it looks for the first dir that contains a pom file and runs
+   checkstyle for that directory."
+  (interactive "P")
+  (let ((dir (file-name-directory (buffer-file-name)))
+        (checkstyle-jar "/home/chronno/src/checkstyle-5.6/checkstyle-5.6-all.jar")
+        (checkstyle-conf "/home/chronno/xfc/src/musica/xfc-checkstyle/src/main/resources/xfc/build/checkstyle.xml"))
+    (while (and (not (file-exists-p (concat dir "/pom.xml")))
+                (not (equal dir (file-truename (concat dir "/..")))))
+      (setf dir (file-truename (concat dir "/.."))))
+    (if (not (file-exists-p (concat dir "/pom.xml")))
+      (message "No pom.xml found")
+      (if buffer-only
+        (compile (format "java -cp %s -Dcheckstyle.cache.file=%s -Dcheckstyle.suppressions.location=%s com.puppycrawl.tools.checkstyle.Main -c %s -r %s"
+                        checkstyle-jar
+                        (concat dir "/target/cachefile")
+                        (concat dir "/src/checkstyle/suppressions.xml")
+                        checkstyle-conf
+                        (concat dir "/src/main/java")))
+        (compile (format "java -cp %s -Dcheckstyle.cache.file=%s -Dcheckstyle.suppressions.location=%s com.puppycrawl.tools.checkstyle.Main -c %s %s"
+                        checkstyle-jar
+                        (concat dir "/target/cachefile")
+                        (concat dir "/src/checkstyle/suppressions.xml")
+                        checkstyle-conf
+                        (buffer-file-name)))))))
+
 (provide 'setup-java-mode)
