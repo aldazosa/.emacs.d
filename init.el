@@ -28,7 +28,8 @@
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(ac-nrepl
+(defvar my-packages '(cider
+                      ac-nrepl
                       ace-jump-mode
                       ack-and-a-half
                       align-cljlet
@@ -116,7 +117,7 @@
 (require 'setup-tapestry)
 (require 'setup-nxml)
 (require 'setup-java-mode)
-(require 'setup-nrepl)
+(require 'setup-cider)
 (require 'setup-clojure)
 (require 'setup-eshell)
 (require 'setup-git-gutter)
