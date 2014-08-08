@@ -14,7 +14,7 @@
 (require 'highlight-symbol)
 
 (add-hook 'prog-mode-hook (lambda ()
-                            (flyspell-prog-mode)
+                            ;; (flyspell-prog-mode)
                             (local-comment-auto-fill)
                             (add-watchwords)
                             (highlight-symbol-mode)))
