@@ -100,7 +100,8 @@
 
 (defun insert-ignore-form ()
   (interactive)
-  (insert "#_"))
+  (insert "#_")
+  (indent-sexp))
 
 (require 'align-cljlet)
 
