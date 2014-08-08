@@ -133,6 +133,12 @@
                                  (interactive)
                                  (message "No cheating, go use the correct bindings")))
 
+;; Time to start using c-h more seriously
+(global-set-key (kbd "<backspace>") (lambda ()
+                                      (interactive)
+                                      (message "Time for a change... try using C-h instead")))
+(keyboard-translate ?\C-h ?\C-?)
+
 (setq mouse-yank-at-point t
       x-select-enable-primary t
       x-select-enable-clipboard t
