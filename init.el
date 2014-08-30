@@ -40,6 +40,7 @@
                       autopair
                       browse-kill-ring
                       clojure-mode
+                      company
                       csv-mode
                       diminish
                       erc-hl-nicks
