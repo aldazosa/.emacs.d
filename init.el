@@ -33,7 +33,6 @@
   (package-refresh-contents))
 
 (defvar my-packages '(cider
-                      ac-nrepl
                       ace-jump-mode
                       ack-and-a-half
                       align-cljlet
@@ -41,7 +40,6 @@
                       autopair
                       browse-kill-ring
                       clojure-mode
-                      clojure-test-mode
                       csv-mode
                       diminish
                       erc-hl-nicks
@@ -54,7 +52,6 @@
                       ido-ubiquitous
                       magit
                       markdown-mode
-                      nrepl
                       org
                       paredit
                       pretty-lambdada
@@ -104,7 +101,7 @@
 ;; Everything else
 (require 'setup-ido)
 (require 'setup-ace-jump)
-(require 'setup-autocomplete)
+(require 'setup-company)
 (require 'setup-google)
 (require 'browse-kill-ring)
 (require 'setup-dired)
