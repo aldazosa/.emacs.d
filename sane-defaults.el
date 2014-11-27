@@ -144,4 +144,7 @@
       x-select-enable-clipboard t
       save-interprogram-paste-before-kill t)
 
+;; Split windows horizontally
+(setq split-width-threshold 9999)
+
 (provide 'sane-defaults)
