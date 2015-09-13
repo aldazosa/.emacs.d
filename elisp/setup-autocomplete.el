@@ -1,7 +1,7 @@
 (require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
-(ac-flyspell-workaround)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (ac-flyspell-workaround)
 
 (global-auto-complete-mode t)
 (setq ac-auto-show-menu t)

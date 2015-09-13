@@ -6,7 +6,7 @@
 ;;; * Code scattered around the interwebs
 
 ;; Set up load path
-(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path "~/.emacs.d/elisp/")
 
 (let ((default-directory "~/.emacs.d/elisp/"))
   (normal-top-level-add-subdirs-to-load-path))

@@ -78,4 +78,7 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; Recent files
+(global-set-key (kbd "C-x f") 'recentf-open-files)
+
 (provide 'key-bindings)
