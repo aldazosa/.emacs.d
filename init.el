@@ -33,11 +33,11 @@
   (package-refresh-contents))
 
 (defvar my-packages '(cider
-                      ace-jump-mode
                       ack-and-a-half
                       align-cljlet
                       auto-complete
                       autopair
+                      avy
                       browse-kill-ring
                       clojure-mode
                       company
@@ -101,7 +101,7 @@
 
 ;; Everything else
 (require 'setup-ido)
-(require 'setup-ace-jump)
+(require 'setup-avy)
 (require 'setup-company)
 (require 'setup-google)
 (require 'browse-kill-ring)
