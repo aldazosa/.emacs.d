@@ -61,6 +61,7 @@
                       slamhound
                       smex
                       smooth-scrolling
+                      swiper
                       sql-indent
                       starter-kit-eshell
                       undo-tree
@@ -100,8 +101,9 @@
 (require 'my-misc)
 
 ;; Everything else
-(require 'setup-ido)
 (require 'setup-avy)
+(require 'setup-swiper) ;; trying swiper for search
+(require 'setup-ido)
 (require 'setup-company)
 (require 'setup-google)
 (require 'browse-kill-ring)
