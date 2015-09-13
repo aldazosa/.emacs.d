@@ -2,6 +2,39 @@
           (lambda ()
             (sql-set-product 'postgres)))
 
+(defvar sql-database-list
+  '(("escuela" . xfc/sql-escuela)
+    ("ciencias" . xfc/sql-ciencias)))
+
+(defun connect-to-database (database)
+  (funcall (cdr (assoc database sql-database-list))))
+
+(defun connect-to ()
+  (interactive)
+  (connect-to-database (completing-read "Choose a database: " sql-database-list)))
+
+(setq sql-connection-alist
+      '((escuela (sql-product  'postgres)
+                 (sql-port 5432)
+                 (sql-server "localhost")
+                 (sql-user "chronno")
+                 (sql-database "escuela"))
+        (ciencias (sql-product  'postgres)
+                  (sql-port 5432)
+                  (sql-server "localhost")
+                  (sql-user "chronno")
+                  (sql-database "ciencias"))))
+
+(defun xfc/sql-escuela ()
+  (interactive)
+  (setq sql-product 'postgres)
+  (sql-connect 'escuela))
+
+(defun xfc/sql-ciencias ()
+  (interactive)
+  (setq sql-product 'postgres)
+  (sql-connect 'ciencias))
+
 (defun local-comment-auto-fill ()
   (auto-fill-mode 1)
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
