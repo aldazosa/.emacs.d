@@ -21,4 +21,41 @@
 
 (diminish 'highlight-symbol-mode)
 
+(defun sqli-clean-output (output)
+  (replace-regexp-in-string "=#\\(.*\\)┌"
+                            "=#\n┌"
+                            output))
+
+(defun sqli-add-hooks ()
+  (add-hook 'comint-preoutput-filter-functions
+            'sql-add-newline-first))
+
+(add-hook 'sql-interactive-mode-hook 'sqli-add-hooks)
+
+(defun clear-sqli-buffer ()
+  (interactive)
+  (erase-buffer)
+  (comint-send-input))
+
+(add-hook 'sql-interactive-mode-hook (lambda ()
+                                       (local-set-key (kbd "C-c M-o") 'clear-sqli-buffer)))
+
+(defadvice sql-send-region (after sql-store-in-history)
+  "The region sent to the SQLi process is also stored in the history."
+  (let ((history (buffer-substring-no-properties start end)))
+    (save-excursion
+      (set-buffer sql-buffer)
+      ;; (message history)
+      (if (and (funcall comint-input-filter history)
+               (or (null comint-input-ignoredups)
+                   (not (ring-p comint-input-ring))
+                   (ring-empty-p comint-input-ring)
+                   (not (string-equal (ring-ref comint-input-ring 0)
+                                      history))))
+          (ring-insert comint-input-ring history))
+      (setq comint-save-input-ring-index comint-input-ring-index)
+      (setq comint-input-ring-index nil))))
+
+(ad-activate 'sql-send-region)
+
 (provide 'setup-sql)
