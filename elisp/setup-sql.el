@@ -1,6 +1,10 @@
+(require 'highlight-symbol)
+
 (add-hook 'sql-mode-hook
           (lambda ()
-            (sql-set-product 'postgres)))
+            (sql-set-product 'postgres)
+            (local-comment-auto-fill)
+            (highlight-symbol-mode)))
 
 (defvar sql-database-list
   '(("escuela" . xfc/sql-escuela)
@@ -61,7 +65,7 @@
 
 (defun sqli-add-hooks ()
   (add-hook 'comint-preoutput-filter-functions
-            'sql-add-newline-first))
+            'sqli-clean-output))
 
 (add-hook 'sql-interactive-mode-hook 'sqli-add-hooks)
 
@@ -73,22 +77,33 @@
 (add-hook 'sql-interactive-mode-hook (lambda ()
                                        (local-set-key (kbd "C-c M-o") 'clear-sqli-buffer)))
 
-(defadvice sql-send-region (after sql-store-in-history)
-  "The region sent to the SQLi process is also stored in the history."
-  (let ((history (buffer-substring-no-properties start end)))
-    (save-excursion
-      (set-buffer sql-buffer)
-      ;; (message history)
-      (if (and (funcall comint-input-filter history)
-               (or (null comint-input-ignoredups)
-                   (not (ring-p comint-input-ring))
-                   (ring-empty-p comint-input-ring)
-                   (not (string-equal (ring-ref comint-input-ring 0)
-                                      history))))
-          (ring-insert comint-input-ring history))
-      (setq comint-save-input-ring-index comint-input-ring-index)
-      (setq comint-input-ring-index nil))))
+(defun pop-to-sqli-buffer ()
+  (interactive)
+  (if (sql-find-sqli-buffer)
+      (progn
+        (pop-to-buffer sql-buffer)
+        (goto-char (point-max)))
+    (connect-to)))
 
-(ad-activate 'sql-send-region)
+(eval-after-load 'sql
+  '(define-key sql-mode-map (kbd "C-c C-z") 'pop-to-sqli-buffer))
+
+(defun eval-query ()
+  (interactive)
+  (let* ((start (save-excursion
+                  (backward-paragraph)
+                  (point)))
+         (end (save-excursion
+                (forward-paragraph)
+                (point)))
+         (query (buffer-substring-no-properties start end)))
+    (with-current-buffer sql-buffer
+      (save-excursion
+        (goto-char (point-max))
+        (insert (format "%s" query))
+        (comint-send-input nil t)))))
+
+(eval-after-load 'sql
+  '(define-key sql-mode-map (kbd "C-c C-c") 'eval-query))
 
 (provide 'setup-sql)
