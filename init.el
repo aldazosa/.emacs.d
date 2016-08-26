@@ -66,7 +66,8 @@
                       starter-kit-eshell
                       undo-tree
                       yasnippet
-                      zen-and-art-theme))
+                      zen-and-art-theme
+                      yaml-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
