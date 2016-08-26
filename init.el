@@ -128,4 +128,5 @@
 (require 'setup-markdown)
 (require 'setup-sql)
 
+(require 'setup-org-mode)
 ;;; init.el ends here
