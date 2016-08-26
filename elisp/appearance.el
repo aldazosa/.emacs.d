@@ -1,5 +1,6 @@
 ;; A nice font
 (set-frame-font "Anonymous pro 14")
+(setq default-frame-alist '((font . "Anonymous pro 14")))
 ;;(set-frame-font "Inconsolata 14")
 
 (setq visible-bell t
