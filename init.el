@@ -79,7 +79,8 @@
                       undo-tree
                       yasnippet
                       zen-and-art-theme
-                      yaml-mode))
+                      yaml-mode
+                      gruvbox))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

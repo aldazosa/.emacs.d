@@ -27,7 +27,8 @@
 (scroll-bar-mode -1)
 
 ;; Nice theme
-(load-theme 'zen-and-art t)
+;; (load-theme 'zen-and-art t)
+(load-theme 'gruvbox t)
 
 ;; Never loose the cursor
 (beacon-mode 1)
