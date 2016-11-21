@@ -27,13 +27,16 @@
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
+;; (add-to-list 'package-archives
+;;              '("melpa" . "https://melpa.org/packages/") t)
+
 (package-initialize)
 
 (when (null package-archive-contents)
   (package-refresh-contents))
 
 (defvar my-packages '(cider
-                      ack-and-a-half
+                      ag
                       align-cljlet
                       auto-complete
                       autopair
