@@ -29,4 +29,7 @@
 ;; Nice theme
 (load-theme 'zen-and-art t)
 
+;; Never loose the cursor
+(beacon-mode 1)
+(setq beacon-color "dark slate blue")
 (provide 'appearance)

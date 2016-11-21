@@ -35,7 +35,8 @@
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(cider
+(defvar my-packages '(beacon
+                      cider
                       ag
                       align-cljlet
                       auto-complete
