@@ -84,4 +84,7 @@
 ;; Paragraph as one line
 (global-set-key (kbd "M-Q") 'unfill-paragraph)
 
+;; Expand region
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'key-bindings)

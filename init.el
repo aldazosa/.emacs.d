@@ -35,7 +35,8 @@
 (when (null package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(beacon
+(defvar my-packages '(expand-region
+                      beacon
                       cider
                       ag
                       align-cljlet
