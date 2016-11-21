@@ -127,5 +127,6 @@
 (require 'setup-git-gutter)
 (require 'setup-markdown)
 (require 'setup-sql)
+(require 'setup-scheme)
 
 ;;; init.el ends here
