@@ -41,6 +41,7 @@
                       auto-complete
                       autopair
                       avy
+                      ace-window
                       browse-kill-ring
                       clojure-mode
                       company
@@ -134,4 +135,5 @@
 (require 'setup-scheme)
 
 (require 'setup-org-mode)
+(require 'setup-ace-window)
 ;;; init.el ends here
