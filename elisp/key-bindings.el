@@ -81,4 +81,7 @@
 ;; Recent files
 (global-set-key (kbd "C-x f") 'recentf-open-files)
 
+;; Paragraph as one line
+(global-set-key (kbd "M-Q") 'unfill-paragraph)
+
 (provide 'key-bindings)
