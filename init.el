@@ -61,6 +61,7 @@
                       highlight-symbol
                       ido-ubiquitous
                       ido-vertical-mode
+                      lorem-ipsum
                       ibuffer-vc
                       magit
                       markdown-mode
