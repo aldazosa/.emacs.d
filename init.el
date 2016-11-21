@@ -60,6 +60,7 @@
                       google-translate
                       highlight-symbol
                       ido-ubiquitous
+                      ido-vertical-mode
                       ibuffer-vc
                       magit
                       markdown-mode
