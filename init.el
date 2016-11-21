@@ -53,6 +53,9 @@
                       ercn
                       flycheck
                       git-gutter-fringe
+                      gitconfig-mode
+                      gitignore-mode
+                      gitattributes-mode
                       google-this
                       google-translate
                       highlight-symbol

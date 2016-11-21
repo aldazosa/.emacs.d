@@ -21,4 +21,9 @@
 
 (diminish 'highlight-symbol-mode)
 
+;; Git modes
+(require 'gitconfig-mode)
+(require 'gitignore-mode)
+(require 'gitattributes-mode)
+
 (provide 'programming)
