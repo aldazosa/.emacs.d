@@ -1,4 +1,11 @@
 (require 'ibuffer-git)
+
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (ibuffer-vc-set-filter-groups-by-vc-root)
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))))
+
 ;;nicely format the ibuffer and include git-status
 (setq ibuffer-formats '((mark modified read-only git-status-mini " "
                               (name 18 18 :left :elide)
