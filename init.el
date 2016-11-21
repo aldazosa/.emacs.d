@@ -136,4 +136,5 @@
 
 (require 'setup-org-mode)
 (require 'setup-ace-window)
+(require 'setup-ag)
 ;;; init.el ends here
