@@ -80,7 +80,8 @@
                       yasnippet
                       zen-and-art-theme
                       yaml-mode
-                      gruvbox-theme))
+                      gruvbox-theme
+                      paradox))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
