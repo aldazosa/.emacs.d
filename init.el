@@ -82,7 +82,8 @@
                       yaml-mode
                       gruvbox-theme
                       paradox
-                      multiple-cursors))
+                      multiple-cursors
+                      fancy-narrow))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
