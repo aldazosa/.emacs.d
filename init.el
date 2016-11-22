@@ -81,7 +81,8 @@
                       zen-and-art-theme
                       yaml-mode
                       gruvbox-theme
-                      paradox))
+                      paradox
+                      multiple-cursors))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -128,6 +129,7 @@
 (require 'setup-magit)
 (require 'setup-erc)
 (require 'setup-flyspell)
+(require 'setup-multiple-cursors)
 
 ;; Programming stuff
 
