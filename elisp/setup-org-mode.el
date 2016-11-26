@@ -1,5 +1,10 @@
 (require 'ox-latex)
 
+(setq org-startup-indented t)
+(setq org-special-ctrl-a/e t)
+(setq org-use-speed-commands t)
+(setq org-startup-folded "nofold")
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 
@@ -38,7 +43,13 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+(org-defkey org-mode-map (kbd "C-M-o") 'open-line-below)
+
 (setq org-agenda-files (list "~/org/xfc.org"
                              "~/org/extras.org"))
+
+(add-hook 'org-mode-hook (lambda ()
+                           (setq window-margin-width 100)
+                           (window-margin-mode 1)))
 
 (provide 'setup-org-mode)

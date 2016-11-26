@@ -44,6 +44,7 @@
     ("5b696536a8a82706b492d07c1acc7bf36cd30ab7cd22afa340730eccce6cfff3" default)))
  '(fci-rule-color "#373b41")
  '(org-agenda-files nil)
+ '(org-export-backends (quote (ascii html icalendar latex md)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
