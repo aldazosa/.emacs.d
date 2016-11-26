@@ -5,6 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(clojure-test-error-face ((t (:background "cornflower blue"))))
  '(clojure-test-failure-face ((t (:background "darkred"))))
+ '(company-scrollbar-bg ((t (:background "#4e4747"))))
+ '(company-scrollbar-fg ((t (:background "#403b3b"))))
+ '(company-tooltip ((t (:inherit default :background "#332f2f"))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face :background "#332f2f"))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#332f2f"))))
  '(cursor ((t (:background "white" :foreground "#a7a7a7"))))
  '(diff-added ((t (:foreground "#00ff00"))))
  '(diff-changed ((t (:foreground "#ffff00"))))
@@ -25,20 +30,39 @@
  '(org-done ((t (:foreground "dark green" :weight bold))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "light steel blue"))))
  '(org-todo ((t (:foreground "red2" :weight bold))))
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#93e0e3"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "turquoise"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "orange"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "slateblue"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "green3"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "purple"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#bfebbf"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "#9c6363"))))
- ;; '(rainbow-delimiters-depth-9-face ((t (:foreground "#d0bf8f"))))
- ;; '(rainbow-delimiters-unmatched-face ((t (:foreground "#88090B"))))
  '(which-func ((t (:foreground "sky blue")))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(custom-enabled-themes (quote (gruvbox)))
+ '(custom-safe-themes
+   (quote
+    ("5b696536a8a82706b492d07c1acc7bf36cd30ab7cd22afa340730eccce6cfff3" default)))
+ '(fci-rule-color "#373b41")
+ '(org-agenda-files nil)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#cc6666")
+     (40 . "#de935f")
+     (60 . "#f0c674")
+     (80 . "#b5bd68")
+     (100 . "#8abeb7")
+     (120 . "#81a2be")
+     (140 . "#b294bb")
+     (160 . "#cc6666")
+     (180 . "#de935f")
+     (200 . "#f0c674")
+     (220 . "#b5bd68")
+     (240 . "#8abeb7")
+     (260 . "#81a2be")
+     (280 . "#b294bb")
+     (300 . "#cc6666")
+     (320 . "#de935f")
+     (340 . "#f0c674")
+     (360 . "#b5bd68"))))
+ '(vc-annotate-very-old-color nil))
