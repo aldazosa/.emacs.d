@@ -3,6 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(aw-leading-char-face ((t (:background "#282828" :foreground "#fe8019" :box (:line-width 1 :color "#fe8019") :height 1.0))))
+ '(aw-mode-line-face ((t (:inherit compilation-mode-line-fail))))
  '(clojure-test-error-face ((t (:background "cornflower blue"))))
  '(clojure-test-failure-face ((t (:background "darkred"))))
  '(company-scrollbar-bg ((t (:background "#4e4747"))))
