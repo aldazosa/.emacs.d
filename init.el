@@ -83,7 +83,8 @@
                       gruvbox-theme
                       paradox
                       multiple-cursors
-                      fancy-narrow))
+                      fancy-narrow
+                      alchemist))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
