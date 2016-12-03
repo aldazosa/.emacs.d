@@ -1,6 +1,6 @@
 (eval-after-load 'clojure-mode
   '(progn
-     (define-key clojure-mode-map (kbd "C-c M-;") 'insert-ignore-form)
+     (define-key clojure-mode-map (kbd "ESC M-;") 'insert-ignore-form)
      (define-key clojure-mode-map (kbd "C-c C-f") 'nrepl-eval-expression-at-point-in-repl)))
 
 (add-hook 'clojure-mode-hook (lambda ()
