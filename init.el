@@ -75,7 +75,6 @@
                       smooth-scrolling
                       swiper
                       sql-indent
-                      starter-kit-eshell
                       undo-tree
                       yasnippet
                       zen-and-art-theme
@@ -84,7 +83,9 @@
                       paradox
                       multiple-cursors
                       fancy-narrow
-                      alchemist))
+                      alchemist
+                      eshell-git-prompt
+                      eshell-up))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
