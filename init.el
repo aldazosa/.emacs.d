@@ -85,7 +85,8 @@
                       fancy-narrow
                       alchemist
                       eshell-git-prompt
-                      eshell-up))
+                      eshell-up
+                      pdf-tools))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -152,4 +153,8 @@
 (require 'setup-org-mode)
 (require 'setup-ace-window)
 (require 'setup-ag)
+
+;; Pdf viewing
+(pdf-tools-install)
+
 ;;; init.el ends here
