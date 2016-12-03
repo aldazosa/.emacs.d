@@ -9,7 +9,6 @@
 
 (add-hook 'java-mode-hook (lambda ()
                                   (java-annotations-setup)
-                                  (yas--initialize)
                                   (yas-load-directory "~/.emacs.d/java-mode")
                                   (autopair-mode)
                                   (whitespace-mode)))
