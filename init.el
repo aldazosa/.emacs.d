@@ -39,7 +39,6 @@
                       beacon
                       cider
                       ag
-                      align-cljlet
                       auto-complete
                       autopair
                       avy
@@ -87,7 +86,8 @@
                       eshell-git-prompt
                       eshell-up
                       pdf-tools
-                      window-margin))
+                      window-margin
+                      clj-refactor))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))

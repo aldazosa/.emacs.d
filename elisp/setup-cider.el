@@ -21,12 +21,13 @@
                  '(progn
                    (setq lisp-indent-function 'clojure-indent-function)
                    ;; (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-                   (define-key cider-mode-map (kbd "C-c M-f") 'cider-pprint-eval-defun-at-point)
-                   (define-key cider-mode-map (kbd "C-c C-f") 'my-cider-insert-defun-in-repl)))
+                   (define-key cider-mode-map (kbd "C-c C-n") 'cider-macroexpand-1)))
 
 ;; When developing leiningen plugins things we cant use trampoline
 ;; (setq nrepl-server-command "lein repl :headless")
 
 (setq cider-repl-use-clojure-font-lock t)
+
+(setq cider-overlays-use-font-lock t)
 
 (provide 'setup-cider)
