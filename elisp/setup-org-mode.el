@@ -48,8 +48,12 @@
 (setq org-agenda-files (list "~/org/xfc.org"
                              "~/org/extras.org"))
 
+(require 'window-margin)
+
 (add-hook 'org-mode-hook (lambda ()
-                           (setq window-margin-width 100)
+                           (setq window-margin-width 120)
                            (window-margin-mode 1)))
+
+(setq org-src-fontify-natively t)
 
 (provide 'setup-org-mode)

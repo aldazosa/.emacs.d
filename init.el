@@ -86,7 +86,8 @@
                       alchemist
                       eshell-git-prompt
                       eshell-up
-                      pdf-tools))
+                      pdf-tools
+                      window-margin))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -154,7 +155,7 @@
 (require 'setup-ace-window)
 (require 'setup-ag)
 
-;; Pdf viewing
 (pdf-tools-install)
 
+(load "github-token.el")
 ;;; init.el ends here
