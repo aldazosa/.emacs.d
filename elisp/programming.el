@@ -7,6 +7,8 @@
 (setq which-func-modes t)
 (which-function-mode 1)
 
+(setq reb-re-syntax 'string)
+
 (defun local-comment-auto-fill ()
   (auto-fill-mode 1)
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
