@@ -145,6 +145,7 @@
 (require 'setup-java-mode)
 (require 'setup-cider)
 (require 'setup-clojure)
+(require 'setup-clj-refactor)
 (require 'setup-eshell)
 (require 'setup-git-gutter)
 (require 'setup-markdown)
