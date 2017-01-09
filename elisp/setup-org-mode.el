@@ -22,10 +22,14 @@
 (setq org-todo-keywords
  '((sequence
     "TODO(t)"  ; next action
+    "NEXT(n)"
     "STARTED(s)"
     "WAITING(w@/!)"
     "CARLOS(c)"
     "MIGUEL(m)"
+    "MARTHA(M)"
+    "ERICK(E)"
+    "CINTHIA(C)"
     "SOMEDAY(.)" "|" "DONE(x!)" "CANCELLED(c@)")
    (sequence "LEARN" "TRY" "TEACH" "|" "COMPLETE(x)")
    (sequence "TOSKETCH" "SKETCHED" "|" "POSTED")
