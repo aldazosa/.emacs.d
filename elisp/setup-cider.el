@@ -18,10 +18,13 @@
   (cider-switch-to-last-clojure-buffer))
 
 (eval-after-load 'cider
-                 '(progn
-                   (setq lisp-indent-function 'clojure-indent-function)
-                   ;; (define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-                   (define-key cider-mode-map (kbd "C-c C-n") 'cider-macroexpand-1)))
+  '(progn
+     (setq lisp-indent-function 'clojure-indent-function)
+     (define-key cider-mode-map (kbd "C-c C-n") 'cider-macroexpand-1)))
+
+(eval-after-load 'cider-repl
+  '(progn
+     (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)))
 
 ;; When developing leiningen plugins things we cant use trampoline
 ;; (setq nrepl-server-command "lein repl :headless")
