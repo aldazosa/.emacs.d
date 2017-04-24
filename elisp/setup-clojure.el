@@ -19,7 +19,8 @@
                                                    ("\\(every\\?\\)[[:space:]]"    . "∀")
                                                    ("\\b\\(true\\)\\b"             . "т")
                                                    ("\\b\\(false\\)\\b"             . "ғ")
-                                                   ("\\(:keys\\)[[:space:]]"       . "ӄ")))
+                                                   ("\\(:keys\\)[[:space:]]"       . "ӄ")
+                                                   ("\\(:strs\\)[[:space:]]"       . "ʂ")))
                                              (font-lock-add-keywords nil
                                                                      `((,(car el)
                                                                         (0 (progn (compose-region (match-beginning 1)
