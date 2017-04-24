@@ -87,7 +87,8 @@
                       eshell-up
                       pdf-tools
                       window-margin
-                      clj-refactor))
+                      clj-refactor
+                      avy-zap))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
