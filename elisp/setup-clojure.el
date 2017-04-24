@@ -28,7 +28,9 @@
                                                                                                   ,(cdr el))
                                                                                   nil))))))))
 
-(setq clojure-indent-style :align-arguments)
+(setq clojure-indent-style :always-indent)
+(define-clojure-indent
+  (->> 0))
 (require 'clj-refactor)
 
 (add-hook 'clojure-mode-hook
