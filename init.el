@@ -156,6 +156,8 @@
 (require 'setup-ace-window)
 (require 'setup-ag)
 
+(require 'setup-clj-refactor)
+
 (pdf-tools-install)
 
 (load "github-token.el")
