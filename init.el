@@ -161,5 +161,4 @@
 
 (pdf-tools-install)
 
-(load "github-token.el")
 ;;; init.el ends here

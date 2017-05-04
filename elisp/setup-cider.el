@@ -9,8 +9,8 @@
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 (setq nrepl-hide-special-buffers t)
-(setq cider-server-command "lein trampoline repl :headless")
-(setq cider-repl-print-length 42)
+;; (setq cider-server-command "lein trampoline repl :headless")
+;; (setq cider-repl-print-length 42)
 
 (defun my-cider-insert-defun-in-repl ()
   (interactive)

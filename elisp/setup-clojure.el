@@ -5,7 +5,8 @@
 
 (eval-after-load 'clojure-mode
   '(progn
-     (define-key clojure-mode-map (kbd "ESC M-;") 'insert-ignore-form)))
+     (define-key clojure-mode-map (kbd "ESC M-;") 'insert-ignore-form)
+     (setq clojure-indent-style :always-indent)))
 
 (add-hook 'clojure-mode-hook (lambda ()
                                      (dolist (el '(("\\(partial\\)[[:space:]]"     . "Ƥ")
@@ -32,8 +33,6 @@
                                                                                                   (match-end 1)
                                                                                                   ,(cdr el))
                                                                                   nil))))))))
-
-(setq clojure-indent-style :always-indent)
 
 (require 'clj-refactor)
 

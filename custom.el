@@ -19,7 +19,7 @@
  '(diff-header ((t (:background "#5f5f5f"))))
  '(diff-removed ((t (:foreground "#ff0000"))))
  '(error ((t (:foreground "DarkOrange" :weight bold))))
- '(eshell-prompt ((t (:foreground "turquoise4" :weight bold))) t)
+ '(eshell-prompt ((t (:foreground "turquoise4" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "lightsteelblue4" :slant italic))))
  '(font-lock-constant-face ((t (:foreground "sienna"))))
  '(font-lock-doc-face ((t (:inherit font-lock-string-face :foreground "bisque4"))))
@@ -38,34 +38,36 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
+  '(ansi-color-faces-vector
+     [default bold shadow italic underline bold bold-italic bold])
  '(custom-enabled-themes (quote (gruvbox)))
  '(custom-safe-themes
-   (quote
-    ("5b696536a8a82706b492d07c1acc7bf36cd30ab7cd22afa340730eccce6cfff3" default)))
+    (quote
+      ("4eb982b248bf818a72877ecb126a2f95d71eea24680022789b14c3dec7629c1b" "5b696536a8a82706b492d07c1acc7bf36cd30ab7cd22afa340730eccce6cfff3" default)))
  '(fci-rule-color "#373b41")
+ '(magit-popup-use-prefix-argument (quote default))
  '(org-agenda-files nil)
  '(org-export-backends (quote (ascii html icalendar latex md)))
+ '(paradox-github-token t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#cc6666")
-     (40 . "#de935f")
-     (60 . "#f0c674")
-     (80 . "#b5bd68")
-     (100 . "#8abeb7")
-     (120 . "#81a2be")
-     (140 . "#b294bb")
-     (160 . "#cc6666")
-     (180 . "#de935f")
-     (200 . "#f0c674")
-     (220 . "#b5bd68")
-     (240 . "#8abeb7")
-     (260 . "#81a2be")
-     (280 . "#b294bb")
-     (300 . "#cc6666")
-     (320 . "#de935f")
-     (340 . "#f0c674")
-     (360 . "#b5bd68"))))
+    (quote
+      ((20 . "#cc6666")
+       (40 . "#de935f")
+       (60 . "#f0c674")
+       (80 . "#b5bd68")
+       (100 . "#8abeb7")
+       (120 . "#81a2be")
+       (140 . "#b294bb")
+       (160 . "#cc6666")
+       (180 . "#de935f")
+       (200 . "#f0c674")
+       (220 . "#b5bd68")
+       (240 . "#8abeb7")
+       (260 . "#81a2be")
+       (280 . "#b294bb")
+       (300 . "#cc6666")
+       (320 . "#de935f")
+       (340 . "#f0c674")
+       (360 . "#b5bd68"))))
  '(vc-annotate-very-old-color nil))
