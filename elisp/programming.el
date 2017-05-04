@@ -23,6 +23,9 @@
 
 (diminish 'highlight-symbol-mode)
 
+;; CSS indent
+(setq css-indent-offset 2)
+
 ;; Git modes
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
