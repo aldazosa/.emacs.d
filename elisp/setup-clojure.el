@@ -1,6 +1,11 @@
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
+
 (eval-after-load 'clojure-mode
-                 '(progn
-                    (define-key clojure-mode-map (kbd "ESC M-;") 'insert-ignore-form)))
+  '(progn
+     (define-key clojure-mode-map (kbd "ESC M-;") 'insert-ignore-form)))
 
 (add-hook 'clojure-mode-hook (lambda ()
                                      (dolist (el '(("\\(partial\\)[[:space:]]"     . "Ƥ")
@@ -29,8 +34,7 @@
                                                                                   nil))))))))
 
 (setq clojure-indent-style :always-indent)
-(define-clojure-indent
-  (->> 0))
+
 (require 'clj-refactor)
 
 (add-hook 'clojure-mode-hook
@@ -45,5 +49,23 @@
   (interactive)
   (insert "#_")
   (indent-sexp))
+
+(define-clojure-indent
+  (some-> 1)
+  (some->> 1)
+  (->> 0)
+  (-> 0)
+  (defroutes 'defun)
+  (GET 2)
+  (POST 2)
+  (PUT 2)
+  (DELETE 2)
+  (HEAD 2)
+  (ANY 2)
+  (context 2)
+  (b/validate 1)
+  (b/valid? 1))
+
+;; (put-clojure-indent 'context 1)
 
 (provide 'setup-clojure)

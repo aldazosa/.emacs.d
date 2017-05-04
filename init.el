@@ -88,7 +88,7 @@
                       pdf-tools
                       window-margin
                       clj-refactor
-                      avy-zap))
+                      htmlize))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
